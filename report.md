@@ -4,6 +4,10 @@ In this environment, two agents control rackets to bounce a ball over a net. If 
 
 The observation space consists of 8 variables corresponding to the position and velocity of the ball and racket. Each agent receives its own, local observation. Two continuous actions are available, corresponding to movement toward (or away from) the net, and jumping.
 
+## Approach 
+
+I started with the architecture and code from P2 project with only modifications to learning update. But I could get score above `0.2` since the agent would start failing after 200 episodes. The main thing I understood that the agent is highly sensitive to `random seed` and after playing with different `random seed`, I observed that is highly sensitive and different values resulted in very varied results.After that I made few modifications to model architecture like adding an extra batch normalization layer and tuned the learning rates of actor, critic and random seed. After trying different combinations I got the best result for `random_seed=9`
+
 ## Architecture
 
 ```python
@@ -36,6 +40,7 @@ action_size = 2
 
 ## Hyperparameter
 
+ ```python
 BUFFER_SIZE = int(2e6)  # replay buffer size
 BATCH_SIZE = 512       # minibatch size
 GAMMA = 0.99            # discount factor
@@ -43,7 +48,11 @@ TAU = 0.009             # for soft update of target parameters
 LR_ACTOR = 0.0007         # learning rate of the actor
 LR_CRITIC = 0.0007        # learning rate of the critic
 WEIGHT_DECAY = 0        # L2 weight decay
+```
 
+## Result
+
+![](https://github.com/twishasaraiya/P3-Collaboration-and-Competition/blob/master/assets/rewards_plot.png)
 
 ## Future work
 
