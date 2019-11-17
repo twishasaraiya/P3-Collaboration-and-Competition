@@ -16,7 +16,9 @@ In this environment, two agents control rackets to bounce a ball over a net. If 
 
 The observation space consists of 8 variables corresponding to the position and velocity of the ball and racket. Each agent receives its own, local observation. Two continuous actions are available, corresponding to movement toward (or away from) the net, and jumping.
 
-## Download the Unity Environment
+The environment is considered solved, when the average (over 100 episodes) of those scores is at least +0.5.
+
+## Getting Started
 
 1. For this project, you will not need to install Unity - this is because we have already built the environment for you, and you can download it from one of the links below. You need only select the environment that matches your operating system:
 
