@@ -13,31 +13,26 @@ action_size = 2
 
 1. Actor
 
-bn1 => BatchNorm1d(24)
-fc1 => Linear(24, 512)
-relu()        
-
-bn2 => BatchNorm1d(512)
-fc2 => Linear(512, 256)
-relu()      
-  
-bn3 => BatchNorm1d(256)
-fc3 => Linear(256, 2)
-tanh()
+- Batch Normalization
+- Linear(24, 512)
+- relu
+- Batch Normalization
+- Linear(512,256)
+- relu
+- Batch Normalization
+- Linear(256,2)
+- tanh
 
 2. Critic
 
-bn1 => BatchNorm1d(24)
-fcs1 => Linear(24, 512)
-        
-bn2 => BatchNorm1d(512)
-relu()
-fc2 => Linear(512+2, 512)
-      
-bn3 => BatchNorm1d(512)
-relu()
-
-fc3 => Linear(512, 1)
+- Batch Normalization
+- Linear(24,512)
+- Batch Normalization
+- relu
+- Linear(512+action_size,512)
+- Batch Normalization
+- relu
+- Linear(512,1)
 
 ## Hyperparameter
 
