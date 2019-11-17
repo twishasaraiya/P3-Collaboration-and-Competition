@@ -47,4 +47,4 @@ conda activate [env name]
 (env_name)$cd folder_name
 (env_name)folder_name$ jupyter notebook
 ```
-7. Follow the instructions in `Continuous_Control.ipynb` to train your own agent
+7. Follow the instructions in `Tennis.ipynb` to train your own agent
