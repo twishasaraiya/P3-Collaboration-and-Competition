@@ -15,12 +15,15 @@ action_size = 2
 
 bn1 => BatchNorm1d(24)
 fc1 => Linear(24, 512)
-        
+relu()        
+
 bn2 => BatchNorm1d(512)
 fc2 => Linear(512, 256)
-        
+relu()      
+  
 bn3 => BatchNorm1d(256)
 fc3 => Linear(256, 2)
+tanh()
 
 2. Critic
 
@@ -28,24 +31,27 @@ bn1 => BatchNorm1d(24)
 fcs1 => Linear(24, 512)
         
 bn2 => BatchNorm1d(512)
+relu()
 fc2 => Linear(512+2, 512)
-        
+      
 bn3 => BatchNorm1d(512)
+relu()
+
 fc3 => Linear(512, 1)
 
 ## Hyperparameter
 
 BUFFER_SIZE = int(2e6)  # replay buffer size
-BATCH_SIZE = 256        # minibatch size
+BATCH_SIZE = 512       # minibatch size
 GAMMA = 0.99            # discount factor
-TAU = 2e-3              # for soft update of target parameters
-LR_ACTOR = 2e-4         # learning rate of the actor
-LR_CRITIC = 3e-3        # learning rate of the critic
+TAU = 0.009             # for soft update of target parameters
+LR_ACTOR = 0.0007         # learning rate of the actor
+LR_CRITIC = 0.0007        # learning rate of the critic
 WEIGHT_DECAY = 0        # L2 weight decay
 
 
 ## Future work
 
-The entire model is too fragile and seems to vary a lot based on the random seed. After playing with some random seed values the I observe the agent seems to learn and then after a point it starts degrading and the performance keeps on falling after 500-600 episodes. 
+The entire model is too fragile and seems to vary a lot based on the random seed. After playing with some random seed values the I observe the agent seems to learn and then after a point it starts degrading and the performance keeps on falling. The best result I got for RANDOM_SEED=9
 
-Trying out other models like MADPPG, AAC might produce better results.
+Trying out other models like D4PG, AAC might produce better results.
