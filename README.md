@@ -1,6 +1,6 @@
 # P3-Collaboration-and-Competition
 
-![](https://github.com/twishasaraiya/P3-Collaboration-and-Competition/blob/master/tennis.gif)
+![](https://github.com/twishasaraiya/P3-Collaboration-and-Competition/blob/master/assets/tennis.gif)
 ## Framework 
 
 - PyTorch
